@@ -1,0 +1,25 @@
+{
+  "name": "@henderea/gdrive-cli",
+  "version": "0.0.1",
+  "description": "A google drive sync CLI with daemon",
+  "main": "index.js",
+  "repository": "git@github.com:henderea/gdrive-cli.git",
+  "author": "Eric Henderson <henderea@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@zeit/ncc": "^0.18.5",
+    "chalk": "^2.4.2",
+    "googleapis": "^40.0.0",
+    "inquirer": "^6.3.1",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.25",
+    "natural-orderby": "^2.0.3",
+    "sequelize": "^5.8.9",
+    "umzug": "^2.2.0",
+    "yargs": "^13.2.4"
+  },
+  "dependencies": {
+    "sqlite3": "^4.0.8"
+  }
+}
