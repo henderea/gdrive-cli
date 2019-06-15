@@ -11,9 +11,11 @@ const run = async () => {
     if(command == 'kill') {
         let killed = await ipc.kill();
         if(killed === false) {
-            devLog(chalk.dim(_.pad(' Daemon Not Running ', 41, '=').slice(0, -1)));
+            devLog.eCen.dim('Daemon Not Running');
+            // devLog(chalk.dim(_.pad(' Daemon Not Running ', 41, '=').slice(0, -1)));
         } else {
-            devLog(chalk.dim(_.pad(' Daemon Killed ', 41, '=').slice(0, -1)));
+            devLog.eCen.dim('Daemon Killed');
+            // devLog(chalk.dim(_.pad(' Daemon Killed ', 41, '=').slice(0, -1)));
         }
         process.exit(0);
         return;
@@ -26,9 +28,9 @@ const run = async () => {
     let deleted = await ipc.config.unset('time.now');
 
     if(deleted) {
-        devLog(chalk.dim.green(`Config property 'time.now' deleted.`));
+        devLog.dim.green(`Config property 'time.now' deleted.`);
     } else {
-        devLog(chalk.dim.yellow(`Config property 'time.now' does not exist.`));
+        devLog.dim.yellow(`Config property 'time.now' does not exist.`);
     }
 
     configs = await ipc.config.getAll();
