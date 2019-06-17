@@ -36,15 +36,22 @@ ipc.serve(paths.socket, () => {
             await db.init();
             const pass = await pw.get();
             let success = drive.init(pass);
-            if(success) {
+            if(success === true) {
                 return null;
-            } else {
+            } else if(success === false) {
                 return 'password.api.missing';
+            } else if(_.isPlainObject(success)) {
+                return success;
             }
         })
         .isVoid((rv) => _.isNil(rv) || _.isString(rv))
         .rName('rev')
-        .use((rv) => _.isNil(rv) ? 'ready' : (_.isString(rv) ? rv : 'restart'))
+        .use((rv) => {
+            if(_.isNil(rv)) { return 'ready'; }
+            if(_.isString(rv)) { return rv; }
+            if(_.isPlainObject(rv) && _.isString(rv.event)) { return rv.event; }
+            return 'restart';
+        })
         ();
     handle('password.api.set')
         .with(async (data) => pw.set(data.password))
