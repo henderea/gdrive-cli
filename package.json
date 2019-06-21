@@ -12,14 +12,13 @@
     "daemonize-process": "^2.0.1",
     "googleapis": "^40.0.0",
     "inquirer": "^6.3.1",
+    "knex": "^0.17.6",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.25",
     "natural-orderby": "^2.0.3",
     "node-ipc": "^9.1.1",
-    "sequelize": "^5.8.9",
     "strip-ansi": "^5.2.0",
-    "umzug": "^2.2.0",
     "yargs": "^13.2.4"
   },
   "dependencies": {
